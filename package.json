@@ -1,0 +1,45 @@
+{
+  "name": "@rootstrap/redux-tools",
+  "version": "0.1.0",
+  "description": "Redux tools we use in both react bases",
+  "main": "src/index.js",
+  "files": [
+    "src",
+    "README.md",
+    "constants.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rootstrap/redux-tools.git"
+  },
+  "keywords": [
+    "redux",
+    "rootstrap",
+    "react"
+  ],
+  "author": "Pedro Zunino <peter@rootstrap.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rootstrap/redux-tools/issues"
+  },
+  "homepage": "https://github.com/rootstrap/redux-tools#readme",
+  "dependencies": {
+    "immer": "^5.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.6.0",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react-hooks": "^2.2.0",
+    "prettier": "^1.19.1"
+  },
+  "peerDependencies": {
+    "react": "^16.9.0",
+    "redux": "^4.0.4",
+    "react-redux": "^7.1.1"
+  }
+}
