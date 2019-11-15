@@ -1,6 +1,6 @@
 {
   "name": "@rootstrap/redux-tools",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Redux tools we use in both react bases",
   "main": "src/index.js",
   "files": [
