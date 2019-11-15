@@ -1,5 +1,5 @@
-import { produce } from 'immer'
-import { NOT_STARTED, LOADING, SUCCESS, ERROR } from '../constants'
+import imm from 'immer'
+import { NOT_STARTED, LOADING, SUCCESS, ERROR } from './constants'
 
 const handleAction = (state, action) => {
   const { type, payload } = action
@@ -36,4 +36,4 @@ const handleAction = (state, action) => {
 }
 
 export default (state = {}, action) =>
-  produce(state, draft => handleAction(draft, action))
+  imm(state, draft => handleAction(draft, action))

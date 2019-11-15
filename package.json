@@ -1,16 +1,16 @@
 {
   "name": "@rootstrap/redux-tools",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Redux tools we use in both react bases",
-  "main": "src/index.js",
+  "main": "lib/index.js",
   "files": [
-    "src",
-    "README.md",
-    "constants.js"
+    "lib",
+    "README.md"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc"
+    "test": "jest tests",
+    "build": "babel src --out-dir lib",
+    "prepare": "babel src --out-dir lib"
   },
   "repository": {
     "type": "git",
@@ -31,11 +31,20 @@
     "immer": "^5.0.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.7.0",
+    "@babel/core": "^7.7.2",
+    "@babel/preset-env": "^7.7.1",
+    "babel-jest": "^24.9.0",
     "eslint": "^6.6.0",
     "eslint-config-prettier": "^6.5.0",
+    "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-react-hooks": "^2.2.0",
-    "prettier": "^1.19.1"
+    "jest": "^24.9.0",
+    "prettier": "^1.19.1",
+    "redux": "^4.0.4",
+    "redux-mock-store": "^1.5.3",
+    "react-redux": "^7.1.1"
   },
   "peerDependencies": {
     "react": "^16.9.0",

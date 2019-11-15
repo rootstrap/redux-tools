@@ -52,13 +52,17 @@ const actionHandlers = {
 ### Status tracking
 
 To access status information on a component the `useStatus` hook is provided.
+The following status constants are exported:
+- LOADING
+- SUCCESS
+- ERROR
 
 Here is a simple example:
 
 ```js
 import { useStatus, useDispatch } from 'hooks';
 import { getProfile } from 'src/actions/userActions';
-import { SUCCESS, LOADING, ERROR } from 'constants/status';
+import { SUCCESS, LOADING, ERROR } from '@rootstrap/redux-tools'
 
 const MyComponent = () => {
   const getProfileRequest = useDispatch(getProfile);

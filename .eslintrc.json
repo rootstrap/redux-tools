@@ -2,11 +2,14 @@
     "env": {
         "browser": true,
         "es6": true,
-        "node": true
+        "node": true,
+        "jest": true
     },
     "extends": [
         "eslint:recommended",
-        "plugin:prettier/recommended"
+        "plugin:prettier/recommended",
+        "plugin:import/errors",
+        "plugin:import/warnings"
     ],
     "plugins": ["prettier"],
     "globals": {
@@ -18,6 +21,7 @@
         "sourceType": "module"
     },
     "rules": {
+        "import/no-unresolved": ["error"],
         "indent": [
             "error",
             2

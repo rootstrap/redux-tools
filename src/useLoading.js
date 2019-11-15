@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux'
-import { LOADING } from '../constants'
+import { LOADING } from './constants'
 
 /**
  * useLoading hook

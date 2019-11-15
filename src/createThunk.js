@@ -1,4 +1,4 @@
-import { SUCCESS, ERROR, REQUEST } from '../constants'
+import { SUCCESS, ERROR, REQUEST } from './constants'
 import createAction from './createAction'
 
 /**

@@ -1,4 +1,4 @@
-import produce from 'immer'
+import imm from 'immer'
 
 /**
  * Reducer creator util
@@ -20,7 +20,7 @@ export default (initialState, actionHandlers) => (
   state = initialState,
   action,
 ) =>
-  produce(state, draft =>
+  imm(state, draft =>
     actionHandlers[action.type]
       ? actionHandlers[action.type](draft, action)
       : state,
