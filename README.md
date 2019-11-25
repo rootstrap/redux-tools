@@ -16,7 +16,7 @@ import { createThunk } from '@rootstrap/redux-tools'
 
 export const getProfile = createThunk(
   'GET_PROFILE',
-  user => userService.login(user),
+  userService.getProfile,
 );
 ```
 
@@ -66,7 +66,7 @@ import { SUCCESS, LOADING, ERROR } from '@rootstrap/redux-tools'
 
 const MyComponent = () => {
   const getProfileRequest = useDispatch(getProfile);
-  const { status, error } = useStatus(profile);
+  const { status, error } = useStatus(getProfile);
 
   return <>
     <button onClick={getProfileRequest}>Show profile!</button>
