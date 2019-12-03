@@ -24,10 +24,11 @@ You can then dispatch this `getProfile` action, and the middleware will automati
 
 `createThunk` receives the action names prefix as the first argument and the async thunk as the second.
 
-The returned object, (`getProfile` in the example above) has 3 properties you can use in order to handle the different dispatched actions in your reducer:
+The returned object, (`getProfile` in the example above) has 4 properties you can use in order to handle the different dispatched actions in your reducer:
 - request
 - success
 - error
+- reset
 
 Following the previous example:
 
@@ -78,6 +79,8 @@ const MyComponent = () => {
 ```
 
 A `useLoading` hook is also available if you only care about loading status. It returns a boolean indicating whether the action is still loading or not.
+
+To reset the status of an action you can dispatch the `reset` action returned by `createThunk`.
 
 
 ---

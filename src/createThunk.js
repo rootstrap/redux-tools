@@ -1,4 +1,4 @@
-import { SUCCESS, ERROR, REQUEST } from './constants'
+import { SUCCESS, ERROR, REQUEST, RESET } from './constants'
 import createAction from './createAction'
 
 /**
@@ -22,6 +22,7 @@ export default (actionName, thunk) => {
   const request = createAction(`${actionName}_${REQUEST}`)
   const error = createAction(`${actionName}_${ERROR}`)
   const success = createAction(`${actionName}_${SUCCESS}`)
+  const reset = createAction(`${actionName}_${RESET}`)
 
   const action = (...params) => ({
     success,
@@ -33,6 +34,7 @@ export default (actionName, thunk) => {
   action.request = request
   action.error = error
   action.success = success
+  action.reset = reset
   action.toString = () => actionName
 
   return action
