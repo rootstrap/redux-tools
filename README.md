@@ -20,6 +20,26 @@ export const getProfile = createThunk(
 );
 ```
 
+If you need to access your store, or dispatch extra actions from your thunk, you can use `dispatch` and `getState` as parameters your thunk.
+
+Example:
+
+Dispatching some custom analytics event that requires store data:
+```js
+// src/actions/userActions.js
+import { createThunk } from '@rootstrap/redux-tools'
+
+export const getProfile = createThunk(
+  'GET_PROFILE',
+  async (userId, dispatch, getState) => {
+    const { analytics: { analyticsToken } } = getState();
+    const profile = await userService.getProfile(profileId);
+    dispatch(analytics.logProfile(analyticsToken, profile));
+    return profile;
+  },
+);
+```
+
 You can then dispatch this `getProfile` action, and the middleware will automatically dispatch actions with types `GET_PROFILE_SUCCESS` or `GET_PROFILE_ERROR` for you.
 
 `createThunk` receives the action names prefix as the first argument and the async thunk as the second.
@@ -88,8 +108,8 @@ To reset the status of an action you can dispatch the `reset` action returned by
 
 ### Step 1: install the package
 
-`npm i @rootstrap/redux-tools`  
-or  
+`npm i @rootstrap/redux-tools`
+or
 `yarn add @rootstrap/redux-tools`
 
 ### Step 2: configure the reducer
