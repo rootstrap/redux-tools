@@ -5,7 +5,7 @@ import createAction from './createAction'
  * Creates different actions creators
  *
  * @param {string} actionName - Action name, will be used as a prefix for the action creators.
- * @param {function} thunk - This is your async thunk
+ * @param {function} thunk - This is your async thunk, receives all forwarded params and `dispatch` and `getState` as params
  *
  * @returns {ActionCreator} Action that can be dispatched to start the async thunk, can also be
  * deconstructed to get request, error, and success action creators (can be used as keys in reducer)
@@ -27,7 +27,7 @@ export default (actionName, thunk) => {
   const action = (...params) => ({
     success,
     error,
-    thunk: () => thunk(...params),
+    thunk: (dispatch, getState) => thunk(...params, dispatch, getState),
     type: request.toString(),
   })
 
