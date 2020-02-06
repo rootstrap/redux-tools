@@ -30,7 +30,7 @@ const handleAction = (state, action) => {
     status = SUCCESS
   }
 
-  if (key) state[key] = { status, error: payload }
+  if (key) state[key] = { status, error: matchesError ? payload : undefined }
 
   return state
 }
