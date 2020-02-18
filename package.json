@@ -1,16 +1,14 @@
 {
   "name": "@rootstrap/redux-tools",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "Redux tools we use in both react bases",
-  "main": "lib/index.js",
+  "main": "src/index.js",
   "files": [
-    "lib",
+    "src",
     "README.md"
   ],
   "scripts": {
-    "test": "jest tests",
-    "build": "babel src --out-dir lib",
-    "prepare": "babel src --out-dir lib"
+    "test": "jest tests"
   },
   "repository": {
     "type": "git",
@@ -31,10 +29,6 @@
     "immer": "^5.0.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.7.0",
-    "@babel/core": "^7.7.2",
-    "@babel/preset-env": "^7.7.1",
-    "babel-jest": "^24.9.0",
     "eslint": "^6.6.0",
     "eslint-config-prettier": "^6.5.0",
     "eslint-plugin-import": "^2.18.2",
