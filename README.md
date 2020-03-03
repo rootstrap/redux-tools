@@ -9,6 +9,8 @@ It includes a status reducer that lets you track the status of your async action
 This package provides an action creator utility, that together with the provided middleware will make it very easy to create side effects for your actions.
 This setup will automatically execute your side effect thunk and dispatch success or error actions when the thunk succeeds or fails, respectively.
 
+`createThunk` receives the action names prefix as the first argument and the async thunk as the second one.
+
 Example:
 ```js
 // src/actions/userActions.js
@@ -20,7 +22,29 @@ export const getProfile = createThunk(
 );
 ```
 
-If you need to access your store, or dispatch extra actions from your thunk, you can use `dispatch` and `getState` as parameters your thunk.
+You can then dispatch this `getProfile` action, and the middleware will automatically dispatch actions with types `GET_PROFILE_SUCCESS` or `GET_PROFILE_ERROR` for you.
+
+The returned object, (`getProfile` in the example above) has 4 properties you can use in order to handle the different dispatched actions in your reducer:
+- request
+- success
+- error
+- reset
+
+Following the previous example:
+
+```js
+// src/reducers/userReducer.js
+
+import { getProfile } from 'src/actions/userActions';
+
+const actionHandlers = {
+  [getProfile.success]: (state, { payload }) => {
+    state.user = payload;
+  },
+};
+```
+
+If you need to access the store, or dispatch extra actions from your thunk, you can use `dispatch` and `getState` as the last two parameters.
 
 Example:
 
@@ -38,36 +62,6 @@ export const getProfile = createThunk(
     return profile;
   },
 );
-```
-
-You can then dispatch this `getProfile` action, and the middleware will automatically dispatch actions with types `GET_PROFILE_SUCCESS` or `GET_PROFILE_ERROR` for you.
-
-`createThunk` receives the action names prefix as the first argument and the async thunk as the second.
-
-The returned object, (`getProfile` in the example above) has 4 properties you can use in order to handle the different dispatched actions in your reducer:
-- request
-- success
-- error
-- reset
-
-Following the previous example:
-
-```js
-// src/actions/userActions.js
-
-export const { success: getProfileSuccess } = getProfile;
-```
-
-```js
-// src/reducers/userReducer.js
-
-import { getProfileSuccess } from 'src/actions/userActions';
-
-const actionHandlers = {
-  [getProfileSucess]: (state, { payload }) => {
-    state.user = payload;
-  },
-};
 ```
 
 ### Status tracking
