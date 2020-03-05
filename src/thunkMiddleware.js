@@ -1,4 +1,7 @@
-export default ({ dispatch, getState }) => next => async action => {
+export default parseError => ({
+  dispatch,
+  getState,
+}) => next => async action => {
   next(action)
 
   const { thunk, success, error } = action
@@ -7,7 +10,8 @@ export default ({ dispatch, getState }) => next => async action => {
       const response = await thunk(dispatch, getState)
       dispatch(success(response))
     } catch (err) {
-      dispatch(error(err))
+      if (parseError) dispatch(error(parseError(err)))
+      else dispatch(error(err))
     }
   }
 }
