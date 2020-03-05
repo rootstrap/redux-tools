@@ -3,7 +3,8 @@ import configureStore from 'redux-mock-store'
 import thunkMiddleware from '../src/thunkMiddleware'
 import createThunk from '../src/createThunk'
 
-const mockStore = configureStore([thunkMiddleware])
+const parseError = error => error.toString()
+let mockStore = configureStore([thunkMiddleware()])
 
 describe('actionThunk Middleware', () => {
   let store
@@ -47,6 +48,20 @@ describe('actionThunk Middleware', () => {
       await store.dispatch(mockSuccessAction())
       const actions = store.getActions()
       expect(actions).toContainEqual(mockSuccessAction.success(success))
+    })
+  })
+
+  describe('when adding a parseError function', () => {
+    const mockStoreWithErrorParsing = configureStore([
+      thunkMiddleware(parseError),
+    ])({})
+
+    describe('when dispatching the action that fails', () => {
+      it('should dispatch the error action with the parsed error', async () => {
+        await mockStoreWithErrorParsing.dispatch(mockErrorAction())
+        const actions = mockStoreWithErrorParsing.getActions()
+        expect(actions).toContainEqual(mockErrorAction.error(parseError(error)))
+      })
     })
   })
 })
