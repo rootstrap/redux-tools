@@ -125,7 +125,5 @@ import { thunkMiddleware } from '@rootstrap/redux-tools'
 
 import rootReducer from 'src/reducers/index'
 
-const store = createStore(rootReducer, applyMiddleware(thunkMiddleware()))
+const store = createStore(rootReducer, applyMiddleware(thunkMiddleware))
 ```
-
-`thunkMiddleware` accepts a function as an optional parameter. This function will be used to transform the error before dispatching it.
