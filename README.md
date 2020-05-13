@@ -97,7 +97,6 @@ A `useLoading` hook is also available if you only care about loading status. It 
 To reset the status of an action you can dispatch the `reset` action returned by `createThunk`.
 
 
----
 ## Installation guide
 
 ### Step 1: install the package
@@ -114,8 +113,8 @@ import { statusReducer } from '@rootstrap/redux-tools'
 
 const rootReducer = combineReducers({
   // ...your other reducers here
-  // you have to pass statusReducer under 'actionStatus' key,
-  actionStatus: statusReducer
+  // you have to pass statusReducer under 'statusReducer' key,
+  statusReducer
 })
 ```
 
