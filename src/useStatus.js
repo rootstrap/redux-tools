@@ -12,8 +12,8 @@ import { useSelector } from 'react-redux'
  */
 
 export default action =>
-  useSelector(({ actionStatus }) => {
-    const { status, error } = actionStatus[action] || {}
+  useSelector(({ statusReducer }) => {
+    const { status, error } = statusReducer[action] || {}
     return {
       status,
       error,

@@ -13,7 +13,7 @@ import { LOADING } from './constants'
  */
 
 export default action =>
-  useSelector(({ actionStatus }) => {
-    const { status } = actionStatus[action] || {}
+  useSelector(({ statusReducer }) => {
+    const { status } = statusReducer[action] || {}
     return status === LOADING
   })
