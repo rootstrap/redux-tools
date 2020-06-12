@@ -10,9 +10,9 @@ const thunkMiddlewareCreator = ({
   if (typeof thunk === 'function') {
     try {
       const response = await thunk(dispatch, getState)
-      dispatch(success(parseResponse(response)))
+      return dispatch(success(parseResponse(response)))
     } catch (err) {
-      dispatch(error(parseError(err)))
+      return dispatch(error(parseError(err)))
     }
   }
 }
