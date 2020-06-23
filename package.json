@@ -1,6 +1,6 @@
 {
   "name": "@rootstrap/redux-tools",
-  "version": "0.7.1",
+  "version": "1.0.0",
   "description": "Redux tools we use in both react bases",
   "main": "lib/index.js",
   "module": "src/index.js",
@@ -24,7 +24,7 @@
     "react"
   ],
   "author": "Pedro Zunino <peter@rootstrap.com>",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/rootstrap/redux-tools/issues"
   },

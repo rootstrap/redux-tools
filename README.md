@@ -127,3 +127,13 @@ import rootReducer from 'src/reducers/index'
 
 const store = createStore(rootReducer, applyMiddleware(thunkMiddleware))
 ```
+
+## License
+
+**@rootstrap/redux-tools** is available under the MIT license. See the LICENSE file for more info.
+
+## Credits
+
+**@rootstrap/redux-tools** is maintained by [Rootstrap](http://www.rootstrap.com) with the help of our [contributors](https://github.com/rootstrap/redux-tools/contributors).
+
+[<img src="https://s3-us-west-1.amazonaws.com/rootstrap.com/img/rs.png" width="100"/>](http://www.rootstrap.com)
